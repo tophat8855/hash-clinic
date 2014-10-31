@@ -10,13 +10,13 @@ describe 'querying medical data' do
       ])
     end
 
-    xit "gets all the last names of the doctors" do
+    it "gets all the last names of the doctors" do
       expect(doctors_last_names(data)).to match_array([
         'Derwent', 'Strout', 'Pye'
       ])
     end
 
-    xit "returns all the ids of the doctors" do
+    it "returns all the ids of the doctors" do
       expect(doctors_ids(data)).to match_array([
         '123GS2', 'JS12WS', '42443W'
       ])
@@ -24,13 +24,13 @@ describe 'querying medical data' do
   end
 
   describe 'getting clinic data' do
-    xit "gets all the names of the clinics" do
+    it "gets all the names of the clinics" do
       expect(clinic_names(data)).to match_array([
         "Privet Medical Center", "Mongo's Day Care Facility"
       ])
     end
 
-    xit "gets all the clinic ids" do
+    it "gets all the clinic ids" do
       expect(clinic_ids(data)).to match_array([
         3002, 3008
       ])
@@ -38,7 +38,7 @@ describe 'querying medical data' do
   end
 
   describe 'finding associated data' do
-    xit "reports the doctors that work at clinic" do
+    it "reports the doctors that work at clinic" do
       expect(doctors_at_a_clinic(data, 3002)).to match_array([
         {
           first_name: 'Miriam',
@@ -55,7 +55,7 @@ describe 'querying medical data' do
       # how would you write this with the other clinic data?
     end
 
-    xit "reports the clinics that a given doctor works at" do
+    it "reports the clinics that a given doctor works at" do
       expect(clinics_for_doctor(data, 'JS12WS')).to match_array([
         {
           name: "Privet Medical Center",
@@ -64,13 +64,13 @@ describe 'querying medical data' do
       ])
     end
 
-    xit "returns a list of just the names of the clinics that a doctor works at" do
+    it "returns a list of just the names of the clinics that a doctor works at" do
       expect(clinic_names_for_doctor(data, 'JS12WS')).to match_array([
         'Privet Medical Center'
       ])
     end
 
-    xit "returns a list of clinic ids for a given doctor" do
+    it "returns a list of clinic ids for a given doctor" do
       expect(doctorn_clinic_ids(data, 'JS12WS')).to match_array([
         3002
       ])
